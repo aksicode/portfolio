@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Akhmad Singgih</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    /* ── PROXIMA NOVA local + fallbacks ── */
+    @font-face {
+      font-family: 'ProximaNova';
+      src: local('Proxima Nova'), local('ProximaNova'), local('Proxima Nova Regular');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'ProximaNova';
+      src: local('Proxima Nova Semibold'), local('ProximaNova-Semibold'), local('Proxima Nova Bold');
+      font-weight: 600 700;
+    }
+
+    :root {
+      --cream:   #FDFCF8;
+      --warm:    #F5F2EB;
+      --warm2:   #EDE8DC;
+      --ink:     #1A1814;
+      --ink2:    #403C35;
+      --ink3:    #8C8678;
+      --teal:    #1B3A6B;
+      --teal2:   #2E5FA3;
+      --teal3:   #D0DCF0;
+      --border:  rgba(26,24,20,0.10);
+      --border2: rgba(26,24,20,0.06);
+      --font:    'ProximaNova', 'DM Sans', sans-serif;
+      --serif:   'Lora', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(253,252,248,0.93);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--ink3);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+      padding: 8rem 4rem 5rem;
+      gap: 5rem;
+    }
+
+    .hero-left { }
+
+    .hero-greeting {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-greeting::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1.5px;
+      background: var(--teal);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-bio strong { color: var(--ink); font-weight: 600; }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-main:hover { background: #0f2545; transform: translateY(-1px); }
+
+    .btn-ghost {
+      font-size: 0.85rem;
+      color: var(--ink3);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    .btn-ghost:hover { color: var(--teal); }
+
+    /* ── HERO PHOTO ── */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 320px;
+      height: 380px;
+    }
+
+    /* Decorative behind-card */
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      top: 16px; left: 16px;
+      right: -16px; bottom: -16px;
+      border: 1.5px solid var(--teal3);
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .photo-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: var(--warm2);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    /* Placeholder — replace content with <img src="..."> */
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      color: var(--ink3);
+    }
+
+    .photo-placeholder .initials {
+      font-family: var(--serif);
+      font-size: 5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .photo-placeholder .hint {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+
+    /* Floating badge */
+    .photo-badge {
+      position: absolute;
+      bottom: -18px;
+      right: -10px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    /* Stat pills under photo */
+    .hero-stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .stat-pill {
+      text-align: center;
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--warm);
+    }
+
+    .stat-pill .num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-pill .num em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .stat-pill .lbl {
+      font-size: 0.68rem;
+      color: var(--ink3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    /* ── DIVIDER ── */
+    hr.div {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 4rem;
+    }
+
+    /* ── SECTION COMMONS ── */
+    .section { padding: 6rem 4rem; }
+
+    .sec-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-label::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1.5px;
+      background: var(--teal);
+    }
+
+    .sec-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .sec-title em { font-style: italic; color: var(--teal); }
+
+    .sec-sub {
+      color: var(--ink3);
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin-bottom: 3.5rem;
+      line-height: 1.75;
+    }
+
+    /* ── MASONRY GALLERY ── */
+    .gallery-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gallery-grid {
+      columns: 3;
+      column-gap: 16px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--warm2);
+      border: 1px solid var(--border2);
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-item:hover .gallery-img-placeholder { transform: scale(1.03); }
+
+    .gallery-img-placeholder {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(42,122,106,0.88);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.25rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-overlay-title {
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .gallery-overlay-year {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── FEATURED MAP SECTION ── */
+    .featured-section {
+      background: var(--warm);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .featured-text { }
+
+    .featured-story {
+      margin-bottom: 2.5rem;
+    }
+
+    .featured-story h4 {
+      font-family: var(--font);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .featured-story p {
+      color: var(--ink2);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .featured-map-visual {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+    }
+
+    /* ── SKILLS ── */
+    .skills-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .skill-list-clean {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border2);
+      font-size: 0.92rem;
+      color: var(--ink2);
+      transition: color 0.2s;
+    }
+
+    .skill-row:first-child { padding-top: 0; }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-row:hover { color: var(--teal); }
+
+    .skill-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      opacity: 0.55;
+      flex-shrink: 0;
+    }
+
+    .spec-box {
+      background: var(--warm);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+    }
+
+    .spec-box h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .spec-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--ink2);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border2);
+      line-height: 1.5;
+    }
+
+    .spec-row:last-child { border-bottom: none; }
+
+    .spec-row::before {
+      content: '→';
+      color: var(--teal);
+      font-size: 0.8rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── BLOG / NOTES ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .blog-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--cream);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+    }
+
+    .blog-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--warm2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .blog-body { padding: 1.5rem; }
+
+    .blog-category {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-excerpt {
+      font-size: 0.83rem;
+      color: var(--ink3);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .blog-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap 0.2s;
+    }
+
+    .blog-link:hover { gap: 9px; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-section {
+      background: var(--teal);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: #fff;
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .testimonial-source {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ── CONTACT FORM ── */
+    .contact-section { background: var(--warm); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-info p {
+      color: var(--ink3);
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink2);
+      text-decoration: none;
+      background: var(--cream);
+      transition: all 0.2s;
+    }
+
+    .social-pill:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 12px 16px;
+      font-family: var(--font);
+      font-size: 0.92rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal2);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--ink3);
+      opacity: 0.7;
+    }
+
+    .form-group textarea { min-height: 130px; }
+
+    .btn-submit {
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover { background: #0f2545; }
+
+    .form-success {
+      display: none;
+      background: var(--teal3);
+      border: 1px solid rgba(42,122,106,0.3);
+      border-radius: 3px;
+      padding: 1rem 1.25rem;
+      color: var(--teal);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--ink3);
+      border-top: 1px solid var(--border2);
+    }
+
+    .footer-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    /* ── SKILLS COMPACT ── */
+    .skills-compact {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .skills-group { }
+
+    .skills-group-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stag {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .stag-solid {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .stag-outline {
+      background: transparent;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+    }
+
+    .stag-muted {
+      background: var(--warm);
+      border: 1px solid var(--border);
+      color: var(--ink2);
+    }
+
+    /* ── SPARKLE / TWINKLE EFFECTS ── */
+
+    /* Bintang di background hero */
+    .sparkle-field {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .sparkle-star {
+      position: absolute;
+      width: 3px; height: 3px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: starTwinkle var(--dur, 2.5s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      opacity: 0;
+    }
+
+    .sparkle-star.big {
+      width: 5px; height: 5px;
+      box-shadow: 0 0 6px 2px rgba(27,58,107,0.4);
+    }
+
+    @keyframes starTwinkle {
+      0%   { opacity: 0;    transform: scale(0.5); }
+      30%  { opacity: 0.9;  transform: scale(1.2); }
+      60%  { opacity: 0.5;  transform: scale(0.9); }
+      80%  { opacity: 1;    transform: scale(1.3); }
+      100% { opacity: 0;    transform: scale(0.5); }
+    }
+
+    /* Kelap-kelip pada nav logo */
+    .nav-logo .spark {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: navPulse 1.8s ease-in-out infinite;
+      vertical-align: middle;
+      box-shadow: 0 0 0 0 rgba(27,58,107,0.5);
+    }
+
+    @keyframes navPulse {
+      0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0   rgba(27,58,107,0.5); opacity: 1; }
+      50%       { transform: scale(1.5); box-shadow: 0 0 0 6px rgba(27,58,107,0);   opacity: 0.7; }
+    }
+
+    /* Kelap-kelip pada section label */
+    .sec-label .spark-dot {
+      display: inline-block;
+      width: 5px; height: 5px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      animation: labelBlink 2.2s ease-in-out infinite;
+    }
+
+    @keyframes labelBlink {
+      0%, 100% { opacity: 1;   transform: scale(1); }
+      40%       { opacity: 0.2; transform: scale(0.6); }
+      70%       { opacity: 1;   transform: scale(1.3); }
+    }
+
+    /* Glitter pada hero title em */
+    .hero-title em {
+      position: relative;
+    }
+
+    .hero-title em::after {
+      content: '✦';
+      position: absolute;
+      top: -10px; right: -18px;
+      font-size: 0.7rem;
+      color: var(--teal);
+      animation: glitterPop 2.8s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes glitterPop {
+      0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+      20%  { opacity: 1; transform: scale(1.4) rotate(20deg); }
+      40%  { opacity: 0.6; transform: scale(1) rotate(-10deg); }
+      60%  { opacity: 1; transform: scale(1.2) rotate(15deg); }
+      100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    }
+
+    /* Shimmer pada stat-pill angka */
+    .stat-pill .num {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-pill .num::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(27,58,107,0.15), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { left: -100%; }
+      50%  { left: 150%; }
+      100% { left: 150%; }
+    }
+
+    /* Twinkling pada photo-badge */
+    .photo-badge {
+      animation: badgePop 3s ease-in-out infinite;
+    }
+
+    @keyframes badgePop {
+      0%, 100% { transform: translateY(0); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+      50%       { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(27,58,107,0.18); }
+    }
+
+    /* Kelap-kelip border photo-ring */
+    .photo-frame::before {
+      animation: ringGlow 2.5s ease-in-out infinite;
+    }
+
+    @keyframes ringGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50%       { opacity: 0.8; transform: scale(1.02); box-shadow: 0 0 20px rgba(27,58,107,0.25); }
+    }
+
+    /* Sparkle on stag-solid hover */
+    .stag-solid {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .stag-solid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(27,58,107,0.3);
+    }
+
+    .stag-solid::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: tagShimmer 3.5s ease-in-out infinite;
+    }
+
+    @keyframes tagShimmer {
+      0%   { left: -80%; }
+      40%  { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    /* Floating sparkle dots around testimonial */
+    .testimonial-section { position: relative; overflow: hidden; }
+
+    .t-spark {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      animation: floatSpark var(--fs-dur, 4s) ease-in-out infinite;
+      animation-delay: var(--fs-d, 0s);
+      pointer-events: none;
+    }
+
+    @keyframes floatSpark {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+      50%       { transform: translateY(-16px) scale(1.5); opacity: 1; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .d1 { animation-delay: 0.1s; }
+    .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; }
+    .d4 { animation-delay: 0.55s; }
+    .d5 { animation-delay: 0.7s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
+      .hero-right { order: -1; }
+      .photo-frame { width: 220px; height: 260px; }
+      .hero-stats { flex-wrap: wrap; }
+      .section { padding: 4rem 1.5rem; }
+      hr.div { margin: 0 1.5rem; }
+      .gallery-grid { columns: 2; }
+      .featured-inner,
+      .skills-cols,
+      .blog-grid,
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .testimonial-section { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><span class="spark"></span>Akhmad Singgih</a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#notes">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+
+  <div class="hero-left">
+    <div class="hero-greeting fade-up d1">GIS Analyst · Cartographer · Jakarta, Indonesia</div>
+    <h1 class="hero-title fade-up d2">
+      Hi, I'm Singgih.<br>
+      I make <em>maps</em> that<br>tell stories.
+    </h1>
+    <p class="hero-bio fade-up d3">
+      Over the past <strong>2+ years</strong> as a GIS Analyst and Spatial Data Scientist, I've helped organizations understand and communicate the hidden stories within geographic data — from flood risk models to interactive WebGIS dashboards.
+    </p>
+    <div class="hero-cta-group fade-up d4">
+      <a href="#contact" class="btn-main">Let's Work Together</a>
+      <a href="#portfolio" class="btn-ghost">See my maps →</a>
+    </div>
+  </div>
+
+  <div class="hero-right fade-up d5">
+    <div class="photo-frame">
+      <div class="photo-inner">
+        <!--
+          CARA PASANG FOTO:
+          Hapus div .photo-placeholder di bawah, ganti dengan:
+          <img src="foto-anda.jpg" alt="Foto Akhmad Singgih" style="width:100%;height:100%;object-fit:cover;display:block;">
+        -->
+        <div class="photo-placeholder">
+          <span class="initials">AS</span>
+          <span class="hint">Ganti dengan foto kamu</span>
+        </div>
+      </div>
+      <div class="photo-badge">Jakarta, Indonesia</div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-pill">
+        <div class="num">15<em>+</em></div>
+        <div class="lbl">Projects</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num">2<em>y</em></div>
+        <div class="lbl">Experience</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<hr class="div">
+
+<!-- ══════════ PORTFOLIO / GALLERY ══════════ -->
+<section class="section" id="portfolio">
+  <div class="gallery-intro">
+    <div>
+      <div class="sec-label">Portfolio</div>
+      <h2 class="sec-title">Maps & <em>Visualizations</em></h2>
+      <p class="sec-sub" style="margin-bottom:0">Hover over each map to see details.</p>
+    </div>
+    <a href="#contact" class="btn-main" style="flex-shrink:0">Commission a Map</a>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- Item 1 – tall -->
+    <div class="gallery-item">
+      <img class="gallery-img-placeholder" src="https://github.com/aksicode/aksicode/blob/main/CEI_Babel.png?raw=true" alt="Coastal Exposure Index Bangka Belitung" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">Coastal Exposure Index — Bangka Belitung</div>
+        <div class="gallery-overlay-year">2025 · QGIS · InVEST</div>
+      </div>
+    </div>
+
+    <!-- Item 2 – wide short -->
+    <div class="gallery-item">
+      <img class="gallery-img-placeholder" src="https://github.com/aksicode/aksicode/blob/main/sankeydiagram_bekasi.png?raw=true" alt="Bekasi LULC Transitions Sankey Diagram" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">Bekasi LULC Transitions Sankey Diagram</div>
+        <div class="gallery-overlay-year">2025 · Google Earth Engine · Google Colab</div>
+      </div>
+    </div>
+
+    <!-- Item 3 – medium -->
+    <div class="gallery-item">
+      <img class="gallery-img-placeholder" src="https://github.com/aksicode/aksicode/blob/main/LandAreaChangeTangerang.png?raw=true" alt="Land Area Change Tangerang" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">Land Area Change in Tangerang Coastal Area</div>
+        <div class="gallery-overlay-year">2025 · Google Earth Engine · QGIS</div>
+      </div>
+    </div>
+
+    <!-- Item 4 – tall -->
+    <div class="gallery-item">
+      <img class="gallery-img-placeholder" src="https://github.com/aksicode/aksicode/blob/main/LULC_Bekasi.png?raw=true" alt="LULC Bekasi" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">Bekasi LULC Changes</div>
+        <div class="gallery-overlay-year">2025 · Google Earth Engine</div>
+      </div>
+    </div>
+
+    <!-- Item 5 – short -->
+    <!-- Item 5 – IKP Lahan Jawa -->
+    <div class="gallery-item">
+      <img class="gallery-img-placeholder" src="https://github.com/aksicode/aksicode/blob/main/02%20IKP%20LAHAN%20Jawa.png?raw=true" alt="IKP Lahan Jawa" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">IKP Lahan — Jawa</div>
+        <div class="gallery-overlay-year">2025 · QGIS · ArcGIS</div>
+      </div>
+    </div>
+
+    <!-- Item 6 – Sampling Design CT KPHX -->
+    <div class="gallery-item">
+      <img class="gallery-img-placeholder" src="https://github.com/aksicode/aksicode/blob/main/Draft_SamplingDesign+CT_KPHX.png?raw=true" alt="Sampling Design CT KPHX" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-title">Sampling Design for eDNA— KPHX</div>
+        <div class="gallery-overlay-year">2026 · ArcGIS Pro · Field Survey Design</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ══════════ FEATURED MAP ══════════ -->
+<section class="section featured-section" id="featured">
+  <div class="featured-inner">
+    <div class="featured-text">
+      <div class="sec-label">Featured Work</div>
+      <h2 class="sec-title">Batangtoru LULC Change<br><em>Before–After</em> Cyclone Senyar</h2>
+
+      <div class="featured-story">
+        <h4>Project Overview</h4>
+        <p>Following the devastation of Cyclone Senyar — which triggered widespread flooding and landslides across Batangtoru, South Tapanuli — the regional government needed a clear, evidence-based picture of how the landscape had changed. The goal was to support disaster response planning and long-term land rehabilitation efforts.</p>
+      </div>
+
+      <div class="featured-story">
+        <h4>My Approach</h4>
+        <p>I conducted a multi-source supervised classification using machine learning on Sentinel-2 optical imagery, Sentinel-1 SAR data, and a Digital Elevation Model. The before-and-after analysis captured land cover transitions at the pixel level, distinguishing changes in forest cover, agricultural land, settlements, and bare ground caused by the cyclone's impact.</p>
+      </div>
+
+      <div class="featured-story">
+        <h4>What This Means for You</h4>
+        <p>I can turn your raw geographic and statistical datasets into clear, decision-ready spatial analyses — delivered on time, with full documentation.</p>
+      </div>
+
+      <a href="#contact" class="btn-main">Start a Project Together</a>
+    </div>
+
+    <div class="featured-map-visual">
+      <img src="https://github.com/aksicode/aksicode/blob/main/webgisGEE.png?raw=true" alt="Batangtoru LULC Change — Cyclone Senyar" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;">
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ══════════ SKILLS ══════════ -->
+<section class="section" id="skills">
+  <div class="sec-label">Competencies</div>
+  <h2 class="sec-title">Skills & <em>Tools</em></h2>
+  <p class="sec-sub">GIS platforms, programming, and spatial analysis methods.</p>
+
+  <div class="skills-compact">
+
+    <div class="skills-group">
+      <div class="skills-group-label">Software</div>
+      <div class="skills-tags">
+        <span class="stag stag-solid">QGIS</span>
+        <span class="stag stag-solid">ArcGIS Pro</span>
+        <span class="stag stag-solid">Google Earth Engine</span>
+        <span class="stag stag-solid">RStudio</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-label">Programming</div>
+      <div class="skills-tags">
+        <span class="stag stag-outline">Python</span>
+        <span class="stag stag-outline">R</span>
+        <span class="stag stag-outline">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-label">Specializations</div>
+      <div class="skills-tags">
+        <span class="stag stag-muted">Remote Sensing</span>
+        <span class="stag stag-muted">Environmental Analysis</span>
+        <span class="stag stag-muted">Cartography</span>
+        <span class="stag stag-muted">ML Classification</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIAL ══════════ -->
+<section class="testimonial-section">
+  <p class="testimonial-quote">
+    "The quality of the work surpassed my expectations. The maps were not only accurate but beautifully designed — they made complex spatial data immediately understandable for our stakeholders."
+  </p>
+  <div class="testimonial-source">— Client, Local Government Agency · Jakarta, 20xx</div>
+</section>
+
+<!-- ══════════ CLIENTS ══════════ -->
+<section class="section" id="notes">
+  <div class="sec-label">Collaborations</div>
+  <h2 class="sec-title">Organizations I've <em>Worked With</em></h2>
+  <p class="sec-sub">I have had the opportunity to collaborate with various government agencies, research institutions, and organizations on GIS and spatial mapping projects.</p>
+
+  <div class="logo-grid">
+
+    <!-- Logo 1: YKI — white bg -->
+    <div class="logo-card" style="background:#ffffff;border-color:#e0e0e0;padding:1rem 1.5rem;">
+      <img src="https://github.com/aksicode/aksicode/blob/main/YKI+LOGO.png?raw=true" alt="YKI Konservasi Indonesia" style="max-width:150px;max-height:75px;width:100%;object-fit:contain;display:block;margin:auto;">
+    </div>
+    <!-- Logo 2: Lokahita -->
+    <div class="logo-card" style="background:#1a6b35;border-color:#1a6b35;padding:1rem 1.75rem;">
+      <img src="https://github.com/aksicode/aksicode/blob/main/lokahita.jpg?raw=true" alt="Lokahita" style="max-width:150px;max-height:75px;width:100%;object-fit:contain;display:block;margin:auto;">
+    </div>
+    <!-- Logo 3: RDI -->
+    <div class="logo-card" style="background:#ffffff;border-color:#e0e0e0;padding:1rem 1.5rem;">
+      <img src="https://github.com/aksicode/aksicode/blob/main/logo-rdi.png?raw=true" alt="RDI" style="max-width:150px;max-height:75px;width:100%;object-fit:contain;display:block;margin:auto;">
+    </div>
+    <!-- Logo 4: WRI — white bg -->
+    <div class="logo-card" style="background:#ffffff;border-color:#e0e0e0;padding:1rem 1.5rem;">
+      <img src="https://github.com/aksicode/aksicode/blob/main/WRI_logo_4c.png?raw=true" alt="WRI" style="max-width:150px;max-height:75px;width:100%;object-fit:contain;display:block;margin:auto;">
+    </div>
+    <!-- Logo 5: Kementerian Lingkungan Hidup — white bg -->
+    <div class="logo-card" style="background:#ffffff;border-color:#e0e0e0;padding:1rem 1.5rem;">
+      <img src="https://github.com/aksicode/aksicode/blob/main/Logo_Kementerian_Lingkungan_Hidup_-_Badan_Pengendalian_Lingkungan_Hidup_(2024).png?raw=true" alt="Kementerian Lingkungan Hidup" style="max-width:150px;max-height:75px;width:100%;object-fit:contain;display:block;margin:auto;">
+    </div>
+    <!-- Logo 6: PSLH UGM -->
+    <div class="logo-card" style="background:#ffffff;border-color:#e0e0e0;padding:1rem 1.5rem;">
+      <img src="https://github.com/aksicode/aksicode/blob/main/logopslh.png?raw=true" alt="PSLH UGM" style="max-width:200px;max-height:100px;width:100%;object-fit:contain;display:block;margin:auto;">
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .logo-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--cream);
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    cursor: pointer;
+  }
+
+  .logo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    border-color: var(--teal3);
+  }
+
+  .logo-card img {
+    max-width: 120px;
+    max-height: 60px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .logo-card:hover img {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .logo-grid { gap: 1rem; }
+  }
+</style>
+
+<hr class="div">
+
+<!-- ══════════ CONTACT FORM ══════════ -->
+<section class="section contact-section" id="contact">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="sec-label">Contact</div>
+      <h3 class="sec-title">Let's work<br><em>together!</em></h3>
+      <p>Feel free to send a message to inquire about a project, ask a question, or just to say hey. I'm open to freelance GIS projects, spatial data consulting, and research collaboration.</p>
+      <div class="social-links">
+        <a href="mailto:akhsinggih@gmail.com" class="social-pill">✉ Email</a>
+        <a href="https://www.linkedin.com/in/akhmad-singgih" class="social-pill">LinkedIn</a>
+        <a href="#" class="social-pill">Download CV</a>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Budi" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Santoso" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="budi@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+      <div class="form-success" id="formSuccess">
+        ✓ Thanks for your message! I'll get back to you soon.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Akhmad Singgih</div>
+  <div>© 2025 · The earth has stories, I help read them</div>
+  <div style="color: var(--teal); font-weight: 500; font-size: 0.75rem;">Jakarta, Indonesia</div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.style.display = 'none';
+      e.target.reset();
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
